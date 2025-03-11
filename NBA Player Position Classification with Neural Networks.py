@@ -2,8 +2,7 @@
 # -*- coding: utf-8 -*-
 
 
-'''1) (40 points) Use one classification method (for example : Decision Tree/Naive Bayes/KNN/SVM/Neural-Networks) on the dataset. You can apply any of the methods explained in this instruction notebook or any other method in scikit-learn. You can also implement your own method. You can tune your model by using any combination of parameter values. Use 80% of the data for training and the rest for validation. Print out the training and validation set accuracy of the model. Also, print out the confusion matrix for both training and validation sets.
-'''
+#Using classification method (Neural Networks) on the dataset
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split, StratifiedKFold, GridSearchCV
@@ -76,9 +75,6 @@ print("\nValidation Set Confusion Matrix:")
 print(confusion_matrix(y_val, y_val_pred))
 
 
-'''2) (20 points) Your TA will test your model on a test set(~120 samples) and you'll have access to this file after your submission deadline. For now, you're given an example test set as "dummy_test.csv", apply your model in 1 to the dummy test set and print the accuracy and confusion matrix on dummy test set.
-'''
-
 # Task 2: Evaluate on dummy test set
 dummy_test = pd.read_csv('dummy_test.csv')
 X_dummy_test = dummy_test.drop('Pos', axis=1)
@@ -101,8 +97,10 @@ print("\nDummy Test Set Confusion Matrix:")
 print(confusion_matrix(y_dummy_test, y_dummy_pred))
 
 
-'''3) (40 points) Use the same model with the same parameters you have chosen in 1). However, instead of using 80%/20% train/test split, apply 10-fold stratified cross-validation. Print out the accuracy of each fold. Print out the average accuracy across all the folds.
-'''
+#Using the same model with the same parameters you have chosen in classification above. 
+#However, instead of using 80%/20% train/test split, apply 10-fold stratified cross-validation. 
+#Print out the accuracy of each fold. Print out the average accuracy across all the folds.
+
 
 # Task 3: 10-fold stratified cross-validation with regularized model
 skf = StratifiedKFold(n_splits=10, shuffle=True, random_state=random_state)
